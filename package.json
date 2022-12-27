@@ -2,7 +2,7 @@
   "name": "petkoo",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://petkoo.shop:8000",
+  "proxy": "https://petkoo.shop:8080",
   "dependencies": {
     "@emotion/react": "^*",
     "@emotion/styled": "^*",
