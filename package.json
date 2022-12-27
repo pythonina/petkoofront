@@ -2,7 +2,7 @@
   "name": "petkoo",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://10.96.133.123:80",
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "@emotion/react": "^*",
     "@emotion/styled": "^*",
