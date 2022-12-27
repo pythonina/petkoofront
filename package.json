@@ -16,7 +16,7 @@
     "react": "*",
     "react-dom": "*",
     "react-router-dom": "*",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "*",
     "react-toastify": "*",
     "tinycolor2": "*"
   },
