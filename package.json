@@ -1,0 +1,47 @@
+{
+  "name": "petkoo",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "https://petkoo.shop:8000",
+  "dependencies": {
+    "@emotion/react": "^*",
+    "@emotion/styled": "^*",
+    "@mui/core": "*",
+    "@mui/icons-material": "*",
+    "@mui/material": "*",
+    "@mui/styles": "*",
+    "axios": "*",
+    "classnames": "*",
+    "jwt-decode": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-router-dom": "*",
+    "react-scripts": "2.1.8",
+    "react-toastify": "*",
+    "tinycolor2": "*"
+  },
+  "scripts": {
+    "start": "node ./node_modules/react-scripts/bin/react-scripts.js start",
+    "build": "node ./node_modules/react-scripts/bin/react-scripts.js build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

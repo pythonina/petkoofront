@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  direction: rtl;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+a.visited {
+  color: unset;
+}
+
+.editable:empty:before {
+  content: attr(data-placeholder);
+}
+
+.editable {
+  font-family: IranSansX !important;
+}
+
+.uni_m_b_small {
+  margin-bottom: 1rem;
+}
+
+.Toastify__toast {
+  font-family: IranSansX !important;
+  direction: rtl;
+}
