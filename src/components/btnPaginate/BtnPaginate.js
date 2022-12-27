@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import classnames from 'classnames';
 
 import { useAdsState, setSearchData, toggleShould, useAdsDispatch } from '../../context/AdsContext';
-import classNames from 'classnames';
 
 
 const BtnPaginate = ({ data: { type, data } }) => {

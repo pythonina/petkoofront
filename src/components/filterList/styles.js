@@ -1,5 +1,4 @@
 import { makeStyles } from "@mui/styles";
-import { fontWeight } from "@mui/system";
 
 const useStyles = makeStyles(theme => ({
     root: {
