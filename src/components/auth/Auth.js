@@ -149,7 +149,7 @@ const Auth = () => {
                                         بعد از وارد کردن شماره موبایل خود پیامی حاوی کد تائید برای شما ارسال میشود.
                                     </Typography>
                                     <Stack sx={{ '&:hover': { borderColor: 'blue' } }} alignItems={'center'} direction={'row'} mb={2} mt={3} borderRadius={'0.5rem'} overflow={'hidden'} border={'1px solid #525252'} >
-                                        <Input autoFocus="autoFocus" ref={phoneRef} onKeyDown={enterPressed} fullWidth disableUnderline sx={{ direction: !changedLevel && phoneInput ? 'ltr' : 'rtl', letterSpacing: !changedLevel && phoneInput ? '4px' : 'normal', marginRight: '1rem', color: '#525252' }} placeholder='شماره موبایل خود را وارد کنید' onChange={(e) => { setChangedLevel(false); setPhoneInput(e.target.value) }} />
+                                        <Input autoFocus ref={phoneRef} onKeyDown={enterPressed} fullWidth disableUnderline sx={{ direction: !changedLevel && phoneInput ? 'ltr' : 'rtl', letterSpacing: !changedLevel && phoneInput ? '4px' : 'normal', marginRight: '1rem', color: '#525252' }} placeholder='شماره موبایل خود را وارد کنید' onChange={(e) => { setChangedLevel(false); setPhoneInput(e.target.value) }} />
                                         <Typography sx={{ background: '#e7e7e7', direction: 'ltr', padding: '0.6rem', marginRight: '0.5rem', color: '#525252' }} component={'span'}>+98</Typography>
                                     </Stack>
                                     <Typography sx={{ mt: 2, mb: 2, color: '#525252', fontSize: '0.8rem', fontWeight: '600' }}>عضویت در سایت به معنی پذیرش <Button sx={{ color: '#FF5959', textDecoration: 'underline', fontSize: '0.8rem', fontWeight: '600', p: 0, '&:hover': { background: 'none' } }} disableRipple component='span'>قوانین و شرایط حفظ حریم خصوصی</Button> سایت پت کو می باشد.</Typography>
@@ -161,7 +161,7 @@ const Auth = () => {
                                 <>
                                     <Typography sx={{ mt: 2, color: '#525252', fontSize: '0.9rem' }}>کد تایید به شماره {'0' + phoneInput} ارسال شد.</Typography>
                                     <Input ref={codeInput} onKeyDown={enterPressed} maxLength={'4'} sx={{ mt: 3, mb: 3, borderRadius: '0.5rem', border: '1px #515151' }} placeholder='کد تائید 4 رقمی را اینجا وارد کنید' onChange={(e) => setCode(e.target.value)} />
-                                    <Button variant='contained' sx={{ borderRadius: '1.5rem', backgroundColor: '#E7E7E7', color: '#949494', '&:hover': { 'color': 'white' }, alignSelf: 'flex-end', p: '0.3rem' }} onClick={(e) => {setLevel(0); phoneRef.current.focus()}}>تغییر شماره موبایل</Button>
+                                    <Button variant='contained' sx={{ borderRadius: '1.5rem', backgroundColor: '#E7E7E7', color: '#949494', '&:hover': { 'color': 'white' }, alignSelf: 'flex-end', p: '0.3rem' }} onClick={(e) => {setLevel(0);}}>تغییر شماره موبایل</Button>
 
                                     {
                                         seconds === 0 && minutes === 0 ? <Button sx={{ mb: 2, alignSelf: 'flex-start', '&:hover': { 'color': '#FF5959' } }} onClick={() => codeRequest(phoneInput, setL, reset, setS)}>درخواست مجدد</Button> :
