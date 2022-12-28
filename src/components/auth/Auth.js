@@ -30,7 +30,9 @@ const Auth = () => {
     const submitRef = useRef();
 
     const enterPressed = (e) => {
-        e.key === "Enter" ? submitRef.current.click() : null;
+        if (e.key === "Enter") {
+            submitRef.current.click();
+        }
     }
 
     const style = {
