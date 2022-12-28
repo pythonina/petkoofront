@@ -28,6 +28,7 @@ const Auth = () => {
     const [code, setCode] = useState('');
 
     const submitRef = useRef();
+    const codeInput = useRef();
 
     const enterPressed = (e) => {
         if (e.key === "Enter") {
@@ -80,6 +81,7 @@ const Auth = () => {
     const reset = (m = 1, s = 60) => {
         setSeconds(s);
         setMinutes(m);
+        codeInput.current.focus();
     }
 
     const setL = () => {
@@ -157,7 +159,7 @@ const Auth = () => {
                                 level == 1 &&
                                 <>
                                     <Typography sx={{ mt: 2, color: '#525252', fontSize: '0.9rem' }}>کد تایید به شماره {'0' + phoneInput} ارسال شد.</Typography>
-                                    <Input onKeyDown={enterPressed} maxLength={'4'} sx={{ mt: 3, mb: 3, borderRadius: '0.5rem', border: '1px #515151' }} placeholder='کد تائید 4 رقمی را اینجا وارد کنید' onChange={(e) => setCode(e.target.value)} />
+                                    <Input ref={codeInput} onKeyDown={enterPressed} maxLength={'4'} sx={{ mt: 3, mb: 3, borderRadius: '0.5rem', border: '1px #515151' }} placeholder='کد تائید 4 رقمی را اینجا وارد کنید' onChange={(e) => setCode(e.target.value)} />
                                     <Button variant='contained' sx={{ borderRadius: '1.5rem', backgroundColor: '#E7E7E7', color: '#949494', '&:hover': { 'color': 'white' }, alignSelf: 'flex-end', p: '0.3rem' }} onClick={(e) => setLevel(0)}>تغییر شماره موبایل</Button>
 
                                     {
