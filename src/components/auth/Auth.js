@@ -76,7 +76,8 @@ const Auth = () => {
     }, [seconds, minutes, start]);
 
 
-    const handleOpen = () => {setOpen(true);}
+        
+    const handleOpen = () => {setOpen(true); codeInput.focus();}
     const handleClose = () => { setOpen(false); setLevel(0) }
 
     const reset = (m = 1, s = 60) => {
@@ -149,7 +150,7 @@ const Auth = () => {
                                         بعد از وارد کردن شماره موبایل خود پیامی حاوی کد تائید برای شما ارسال میشود.
                                     </Typography>
                                     <Stack sx={{ '&:hover': { borderColor: 'blue' } }} alignItems={'center'} direction={'row'} mb={2} mt={3} borderRadius={'0.5rem'} overflow={'hidden'} border={'1px solid #525252'} >
-                                        <Input ref={phoneRef=>phoneRef&&phoneRef.focus()} onKeyDown={enterPressed} fullWidth disableUnderline sx={{ direction: !changedLevel && phoneInput ? 'ltr' : 'rtl', letterSpacing: !changedLevel && phoneInput ? '4px' : 'normal', marginRight: '1rem', color: '#525252' }} placeholder='شماره موبایل خود را وارد کنید' onChange={(e) => { setChangedLevel(false); setPhoneInput(e.target.value) }} />
+                                        <Input ref={phoneRef} onKeyDown={enterPressed} fullWidth disableUnderline sx={{ direction: !changedLevel && phoneInput ? 'ltr' : 'rtl', letterSpacing: !changedLevel && phoneInput ? '4px' : 'normal', marginRight: '1rem', color: '#525252' }} placeholder='شماره موبایل خود را وارد کنید' onChange={(e) => { setChangedLevel(false); setPhoneInput(e.target.value) }} />
                                         <Typography sx={{ background: '#e7e7e7', direction: 'ltr', padding: '0.6rem', marginRight: '0.5rem', color: '#525252' }} component={'span'}>+98</Typography>
                                     </Stack>
                                     <Typography sx={{ mt: 2, mb: 2, color: '#525252', fontSize: '0.8rem', fontWeight: '600' }}>عضویت در سایت به معنی پذیرش <Button sx={{ color: '#FF5959', textDecoration: 'underline', fontSize: '0.8rem', fontWeight: '600', p: 0, '&:hover': { background: 'none' } }} disableRipple component='span'>قوانین و شرایط حفظ حریم خصوصی</Button> سایت پت کو می باشد.</Typography>
