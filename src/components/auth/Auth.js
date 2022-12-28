@@ -82,6 +82,7 @@ const Auth = () => {
     const reset = (m = 1, s = 60) => {
         setSeconds(s);
         setMinutes(m);
+        console.log('sssssssssssss');
         codeInput.current.focus();
     }
 
