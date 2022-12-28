@@ -76,13 +76,12 @@ const Auth = () => {
     }, [seconds, minutes, start]);
 
 
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {setOpen(true); phoneRef.current.focus();}
     const handleClose = () => { setOpen(false); setLevel(0) }
 
     const reset = (m = 1, s = 60) => {
         setSeconds(s);
         setMinutes(m);
-        console.log('sssssssssssss');
         codeInput.current.focus();
     }
 
