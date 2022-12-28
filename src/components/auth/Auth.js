@@ -77,7 +77,13 @@ const Auth = () => {
 
 
         
-    const handleOpen = () => {setOpen(true);}
+    const handleOpen = () => {
+        setOpen(true);
+        const tt = phoneRef.current;
+        if (tt){
+            tt.focus();
+        }
+    }
     const handleClose = () => { setOpen(false); setLevel(0) }
 
     const reset = (m = 1, s = 60) => {
