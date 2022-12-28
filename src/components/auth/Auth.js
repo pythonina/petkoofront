@@ -29,7 +29,6 @@ const Auth = () => {
 
     const submitRef = useRef();
     const codeInput = useRef();
-    const phoneRef = useRef();
 
     const enterPressed = (e) => {
         if (e.key === "Enter") {
@@ -77,13 +76,7 @@ const Auth = () => {
 
 
         
-    const handleOpen = () => {
-        setOpen(true);
-        const tt = phoneRef.current;
-        if (tt){
-            tt.focus();
-        }
-    }
+    const handleOpen = () => setOpen(true);
     const handleClose = () => { setOpen(false); setLevel(0) }
 
     const reset = (m = 1, s = 60) => {
@@ -170,7 +163,7 @@ const Auth = () => {
                                     <Button variant='contained' sx={{ borderRadius: '1.5rem', backgroundColor: '#E7E7E7', color: '#949494', '&:hover': { 'color': 'white' }, alignSelf: 'flex-end', p: '0.3rem' }} onClick={(e) => {setLevel(0);}}>تغییر شماره موبایل</Button>
 
                                     {
-                                        seconds === 0 && minutes === 0 ? <Button sx={{ mb: 2, alignSelf: 'flex-start', '&:hover': { 'color': '#FF5959' } }} onClick={() => codeRequest(phoneInput, setL, reset, setS)}>درخواست مجدد</Button> :
+                                        seconds === 0 && minutes === 0 ? <Button sx={{ mb: 2, alignSelf: 'flex-start', '&:hover': { 'color': '#FF5959' } }} onClick={() => {codeRequest(phoneInput, setL, reset, setS); codeInput.current.focus();}}>درخواست مجدد</Button> :
                                             <Typography sx={{ mt: 2, mb: 2, color: '#525252', fontSize: '0.8rem', fontWeight: '600' }}>درخواست مجدد تا ({minutes}:{seconds} ثانیه دیگر)</Typography>
 
                                     }
