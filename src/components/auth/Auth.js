@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { toast } from "react-toastify";
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { Button, Modal, Box, Typography, Input, Stack } from '@mui/material';
 import useStyles from "./styles";
 
@@ -12,14 +11,14 @@ const Auth = () => {
 
 
     const classes = useStyles();
-    const { phone, authTokens, codeRequest, verifyRequest, logoutRequest } = React.useContext(AuthContext);
+    const { phone, authTokens, codeRequest, verifyRequest, logoutRequest } = useContext(AuthContext);
 
     const [seconds, setSeconds] = useState(60);
     const [minutes, setMinutes] = useState(1);
     const [start, setStart] = useState(false);
 
     const [changedLevel, setChangedLevel] = useState(false);
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const [click, setClick] = useState(false);
     const [level, setLevel] = useState(0);
@@ -44,11 +43,21 @@ const Auth = () => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '36rem',
-        height: '22rem',
         borderRadius: '1.5rem',
         bgcolor: 'background.paper',
         boxShadow: '0 0 5px white',
         p: 4,
+        '@media screen and (max-width: 575.98px)': {
+            width: '80%',
+            borderRadius: '0.5rem',
+        },
+        '@media screen and (max-width: 480px)': {
+            width: '100%',
+            borderRadius: 0,
+        },
+        '@media screen and (max-width: 385px)': {
+            padding: '1.5rem 1rem 2rem 1rem',
+        }
     };
 
     useEffect(() => {
@@ -74,10 +83,9 @@ const Auth = () => {
         }
     }, [seconds, minutes, start]);
 
-
         
     const handleOpen = () => setOpen(true);
-    const handleClose = () => { setOpen(false); setLevel(0) }
+    const handleClose = () => { setOpen(false); setLevel(0); setPhoneInput(''); }
 
     const reset = (m = 1, s = 60) => {
         setSeconds(s);
@@ -147,8 +155,8 @@ const Auth = () => {
                                         <br />
                                         بعد از وارد کردن شماره موبایل خود پیامی حاوی کد تائید برای شما ارسال میشود.
                                     </Typography>
-                                    <Stack sx={{ '&:hover': { borderColor: 'blue' } }} alignItems={'center'} direction={'row'} mb={2} mt={3} borderRadius={'0.5rem'} overflow={'hidden'} border={'1px solid #525252'} >
-                                        <Input autoFocus ref={phoneRef} onKeyDown={enterPressed} fullWidth disableUnderline sx={{ direction: !changedLevel && phoneInput ? 'ltr' : 'rtl', letterSpacing: !changedLevel && phoneInput ? '4px' : 'normal', marginRight: '1rem', color: '#525252' }} placeholder='شماره موبایل خود را وارد کنید' onChange={(e) => { setChangedLevel(false); setPhoneInput(e.target.value) }} />
+                                    <Stack className={classes.inputPhone} sx={{ '&:hover': { borderColor: 'blue' } }} alignItems={'center'} direction={'row'} borderRadius={'0.5rem'} overflow={'hidden'} border={'1px solid #525252'} >
+                                        <Input autoFocus onKeyDown={enterPressed} fullWidth disableUnderline sx={{ direction: !changedLevel && phoneInput ? 'ltr' : 'rtl', letterSpacing: !changedLevel && phoneInput ? '4px' : 'normal', marginRight: '1rem', color: '#525252' }} placeholder='شماره موبایل خود را وارد کنید' onChange={(e) => { setChangedLevel(false); setPhoneInput(e.target.value) }} />
                                         <Typography sx={{ background: '#e7e7e7', direction: 'ltr', padding: '0.6rem', marginRight: '0.5rem', color: '#525252' }} component={'span'}>+98</Typography>
                                     </Stack>
                                     <Typography sx={{ mt: 2, mb: 2, color: '#525252', fontSize: '0.8rem', fontWeight: '600' }}>عضویت در سایت به معنی پذیرش <Button sx={{ color: '#FF5959', textDecoration: 'underline', fontSize: '0.8rem', fontWeight: '600', p: 0, '&:hover': { background: 'none' } }} disableRipple component='span'>قوانین و شرایط حفظ حریم خصوصی</Button> سایت پت کو می باشد.</Typography>

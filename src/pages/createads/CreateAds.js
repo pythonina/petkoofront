@@ -182,7 +182,7 @@ const CreateAds = () => {
                 </Link>
             </div>
 
-            <Box sx={{ mb: 10, position: 'relative', color: '#525252', p: 3, borderRadius: '1.5rem', boxShadow: '0 0 4px #1f1f1f', textAlign: 'center', marginRight: 'auto', marginLeft: 'auto', width: '33rem', bgcolor: 'background.paper' }}>
+            <Box className={classes.box} sx={{ mb: 10, position: 'relative', color: '#525252', p: 3, borderRadius: '1.5rem', boxShadow: '0 0 4px #1f1f1f', textAlign: 'center', marginRight: 'auto', marginLeft: 'auto', width: '33rem', bgcolor: 'background.paper' }}>
                 {(level === 0 || level === 1) && <Typography sx={{ pr: 2, textAlign: level === 0 ? 'center' : 'right', fontWeight: '600' }}>نوع پت خود را انتخاب کنید</Typography>}
                 {(level === 2) && <Typography sx={{ pr: 2, textAlign: 'right', fontWeight: '600' }}>جنسیت {cat?.name} خود را وارد کنید</Typography>}
                 {(level === 3) && <Typography sx={{ pr: 2, textAlign: 'right', fontWeight: '600' }}>محدوده آگهی خود را مشخص کنید</Typography>}
@@ -191,7 +191,7 @@ const CreateAds = () => {
                     <nav>
                         <List sx={{ marginTop: '0.8rem' }}>
                             {
-                                level !== 2 ? cats.map((c, index) =>
+                                level !== 2 ? cats.map((c, index, row) =>
                                     <Fragment key={index}>
                                         <ListItem disablePadding onClick={() => { catClicked(c); itemClicked() }}>
                                             <ListItemButton className={classes.cat__item} >
@@ -199,11 +199,11 @@ const CreateAds = () => {
                                                 <div className={classes.cat__icon}><img src={c.img} /></div>
                                             </ListItemButton>
                                         </ListItem>
-                                        <Divider />
+                                        {index != row.length-1 && <Divider />}
                                     </Fragment>
                                 )
                                     :
-                                    ['نر', 'ماده', 'نامشخص', 'جفت'].map((c, index) =>
+                                    ['نر', 'ماده', 'نامشخص', 'جفت'].map((c, index, row) =>
                                         <Fragment key={index}>
                                             <ListItem disablePadding onClick={() => {
                                                 switch (index) {
@@ -226,7 +226,7 @@ const CreateAds = () => {
                                                     {index === 3 && <span className={classes.adsItem__icon}><img src='/images/gender1.png' alt='gender icon1' /><img src='/images/gender2.png' alt='gender icon2' /></span>}
                                                 </ListItemButton>
                                             </ListItem>
-                                            <Divider />
+                                            {index != row.length-1 && <Divider />}
                                         </Fragment>
                                     )
                             }
@@ -234,9 +234,9 @@ const CreateAds = () => {
                     </nav>
                     :
                     <>
-                        <Typography sx={{ pr: 4, mb: 1, mt: 2, textAlign: 'right', fontWeight: '600' }}>شهر</Typography>
+                        <Typography className={classes.inp} sx={{ pr: 4, mb: 1, mt: 2, textAlign: 'right', fontWeight: '600' }}>شهر</Typography>
 
-                        <Button sx={{ width: '25rem', borderRadius: '0.5rem', border: '2px solid #1f1f1f', textAlign: 'right' }} onClick={handleClick}>انتخاب شهر</Button>
+                        <Button className={classes.btn} sx={{ width: '25rem', borderRadius: '0.5rem', border: '2px solid #1f1f1f', textAlign: 'right' }} onClick={handleClick}>انتخاب شهر</Button>
                         <Menu
                             anchorEl={anchorEl}
                             open={Boolean(anchorEl)}
@@ -251,8 +251,8 @@ const CreateAds = () => {
 
                         {(quarters === undefined || quarters.length > 0) &&
                             <>
-                                <Typography sx={{ pr: 4, mb: 1, mt: 2, textAlign: 'right', fontWeight: '600' }}>محله</Typography>
-                                <Button sx={{ color: quarters === undefined ? '#929292' : '#0084FF', width: '25rem', borderRadius: '0.5rem', border: '2px solid #1f1f1f', textAlign: 'right' }} onClick={handleClick2}>{city ? 'انتخاب محله' : 'شهری انتخاب نشده'}</Button>
+                                <Typography className={classes.inp} sx={{ pr: 4, mb: 1, mt: 2, textAlign: 'right', fontWeight: '600' }}>محله</Typography>
+                                <Button className={classes.btn} sx={{ color: quarters === undefined ? '#929292' : '#0084FF', width: '25rem', borderRadius: '0.5rem', border: '2px solid #1f1f1f', textAlign: 'right' }} onClick={handleClick2}>{city ? 'انتخاب محله' : 'شهری انتخاب نشده'}</Button>
                             </>
                         }
                         {quarters?.length > 0 && <Menu
@@ -264,7 +264,7 @@ const CreateAds = () => {
                             {quarters?.map((q, index) => <MenuItem sx={{ width: quarters.length < 6 ? '25rem' : '23.7rem' }} key={index} onClick={() => { setQuarter(q.id); handleClose2(); }}>{q.name}</MenuItem>)}
                         </Menu>}
 
-                        <Typography sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>عکس پت خود را اضافه کنید</Typography>
+                        <Typography className={classes.inp} sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>عکس پت خود را اضافه کنید</Typography>
                         <Stack justifyContent='space-evenly' alignItems='center' direction={'row'}>
                             <input ref={inputRef} type={'file'} accept={'image/*'} style={{ display: 'none' }} onChange={handleChangeAvatar} />
                             <Paper sx={{ backgroundColor: '#f1f1f1', borderRadius: '1.5rem', overflow: 'hidden', width: '6.62rem', height: '6.62rem', cursor: 'pointer' }} onClick={() => inputRef.current.click()}>
@@ -272,7 +272,7 @@ const CreateAds = () => {
                                 {!imagePath && <Typography sx={{ color: '#525252', fontSize: '0.9rem', marginBottom: '-1rem' }}>عکس اصلی</Typography>}
                             </Paper>
                             <input ref={inputRef2} type={'file'} accept={'image/*'} style={{ display: 'none' }} onChange={handleChangeAvatar2} />
-                            <Paper sx={{ border: '1px solid #f1f1f1', borderRadius: '1.5rem', overflow: 'hidden', width: '6.62rem', height: '6.62rem', cursor: 'pointer' }} onClick={() => inputRef2.current.click()}>
+                            <Paper className={classes.pix} sx={{ border: '1px solid #f1f1f1', borderRadius: '1.5rem', overflow: 'hidden', width: '6.62rem', height: '6.62rem', cursor: 'pointer' }} onClick={() => inputRef2.current.click()}>
                                 <img style={{ width: imagePath2 ? '100%' : 'auto', height: imagePath2 ? '100%' : 'auto' }} src={imagePath2 ? imagePath2 : '/images/addimage2.png'} alt='add icon' />
                                 {!imagePath2 && <Typography sx={{ color: '#929292', fontSize: '0.9rem', marginBottom: '-1rem' }}>عکس اضافی</Typography>}
                             </Paper>
@@ -282,13 +282,13 @@ const CreateAds = () => {
                                 {!imagePath3 && <Typography sx={{ color: '#929292', fontSize: '0.9rem', marginBottom: '-1rem' }}>عکس اضافی</Typography>}
                             </Paper>
                         </Stack>
-                        <Typography sx={{ mt: 1, pr: 4, textAlign: 'right', color: '#525252', fontSize: '0.7rem', }}>
+                        <Typography className={classes.inp} sx={{ mt: 1, pr: 4, textAlign: 'right', color: '#525252', fontSize: '0.7rem', }}>
                             سعی کنید حداقل یک عکس برای آگهی خود قرار بدهید.
                             <br />
                             شما می توانید حداکثر 3 عکس برای آگهی خود اضافه کنید.
                         </Typography>
 
-                        <Typography sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>نوع آگهی</Typography>
+                        <Typography className={classes.inp} sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>نوع آگهی</Typography>
                         <RadioGroup
                             row
                             defaultValue="0"
@@ -301,8 +301,8 @@ const CreateAds = () => {
 
                         {boolPrice &&
                             <>
-                                <Typography sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>قیمت آگهی را مشخص کنید</Typography>
-                                <TextField className={classes.test} onChange={(e) => setPrice(e.target.value)}
+                                <Typography className={classes.inp} sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>قیمت آگهی را مشخص کنید</Typography>
+                                <TextField className={classes.inp} onChange={(e) => setPrice(e.target.value)}
                                     fullWidth
                                     sx={{ paddingRight: 5, paddingLeft: 5, borderColor: '#525252', }}
                                     hiddenLabel
@@ -310,21 +310,21 @@ const CreateAds = () => {
                                     size="small"
                                 />
                             </>}
-                        <Typography sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>عنوان آگهی</Typography>
-                        <TextField className={classes.test} onChange={(e) => setTitle(e.target.value)}
+                        <Typography className={classes.inp} sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>عنوان آگهی</Typography>
+                        <TextField className={classes.inp} onChange={(e) => setTitle(e.target.value)}
                             fullWidth
                             sx={{ paddingRight: 5, paddingLeft: 5, borderColor: '#525252', }}
                             hiddenLabel
                             variant="outlined"
                             size="small"
                         />
-                        <Typography sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>توضیحات آگهی</Typography>
-                        <Typography sx={{ mt: 1, pr: 4, textAlign: 'right', color: '#525252', fontSize: '0.7rem', marginBottom: '1rem' }}>
+                        <Typography className={classes.inp} sx={{ pr: 4, mb: 2, mt: 4, textAlign: 'right', fontWeight: '600' }}>توضیحات آگهی</Typography>
+                        <Typography className={classes.inp} sx={{ mt: 1, pr: 4, textAlign: 'right', color: '#525252', fontSize: '0.7rem', marginBottom: '1rem' }}>
                             سعی کنید توضیحات کافی را در این قسمت قرار دهید.
                             <br />
                             مثل خصوصیاتی که حیوان شما دارد.
                         </Typography>
-                        <TextField className={classes.test} onChange={(e) => setDesc(e.target.value)}
+                        <TextField className={classes.inp} onChange={(e) => setDesc(e.target.value)}
                             rows={5}
                             fullWidth
                             sx={{ paddingRight: 5, paddingLeft: 5, borderColor: '#525252', }}

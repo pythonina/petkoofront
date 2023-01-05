@@ -48,6 +48,28 @@ const useStyles = makeStyles(theme => ({
             height: '100%',
         }
     },
+    box: {
+        '@media screen and (max-width: 575.98px)': {
+            width: '100%',
+            borderRadius: 0,
+            boxShadow: '0 -9px 15px -18px #1f1f1f'
+        }
+    },
+    btn: {
+        '@media screen and (max-width: 575.98px)': {
+            width: '100%',
+        }
+    },
+    pix: {
+        '@media screen and (max-width: 400px)': {
+            margin: '0 5px'
+        }
+    },
+    inp: {
+        '@media screen and (max-width: 575.98px)': {
+            padding: '0'
+        }
+    },
 }));
 
 export default useStyles;

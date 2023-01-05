@@ -7,17 +7,20 @@ const useStyles = makeStyles(theme => ({
         maxWidth: '1600px',
         marginRight: 'auto',
         marginLeft: 'auto',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
     },
     logo: {
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     logo__text: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        textAlign: 'right'
+        display: 'none',
+        '@media screen and (min-width: 992px)': {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            textAlign: 'right',
+        },
     },
     logo__text__blue: {
         color: theme.palette.primary.main,

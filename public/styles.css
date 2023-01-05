@@ -1,6 +1,10 @@
 body {
   margin: 0;
   direction: rtl;
+  position: relative;
+}
+#root {
+  overflow: hidden auto;
 }
 
 a {
@@ -27,4 +31,10 @@ a.visited {
 .Toastify__toast {
   font-family: IranSansX !important;
   direction: rtl;
+}
+
+@media screen and (max-width: 460px) {
+  .Toastify__toast-container--top-right {
+    right: 0 !important;
+  }
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useStyles from "./styles";
 import { getMyAdsRequest, deleteAdsRequest } from '../../api/api_auth';
 import { toast } from "react-toastify";
-import { Typography, Stack, Button } from '@mui/material';
+import { Typography, Stack, Button, useMediaQuery } from '@mui/material';
 import classnames from 'classnames';
 
 import { Link } from 'react-router-dom';
@@ -19,6 +19,9 @@ const MyAdsList = () => {
     const { text2, page2, rStatus } = useAdsState();
     const adsDispatch = useAdsDispatch();
     const [data, setData] = useState([]);
+
+    const isLaptopSize = useMediaQuery('(max-width:1199.98px)');
+    const isMobileSize =  useMediaQuery('(max-width:460px)');
 
     const updateAdsList = () => {
         getMyAdsRequest(page2, text2, rStatus, (status, data) => {
@@ -85,7 +88,7 @@ const MyAdsList = () => {
 
     return (
         <>
-            {data?.results?.map((d, index) => <Stack key={index} mt={'1.5rem'} direction={'row'} mr={'8rem'} color={'#525252'} bgcolor={'white'} borderRadius={'1.5rem'}>
+            {data?.results?.map((d, index) => <Stack key={index} mt={'1.5rem'} direction={'row'} mr={isLaptopSize ? (isMobileSize ? 0 : '2rem') : '8rem'} color={'#525252'} bgcolor={'white'} borderRadius={isMobileSize ? 0 : '1.5rem'}>
                 <Link to={`/${d.id}/${d.title}`}><div className={classes.bookmark__image}><img src={d.image1} alt={d.title} /></div></Link>
                 <Stack direction={'column'} alignItems={'flex-start'} marginLeft={'auto'} paddingTop={'0.6rem'}>
                     <Stack alignItems={'center'} direction={'row'}>

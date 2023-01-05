@@ -53,13 +53,10 @@ const useStyles = makeStyles(theme => ({
     },
     paginate: {
         position: 'relative',
-        top: '2rem',
-        left: '4rem',
         display: 'flex',
         alignSelf: 'center'
     },
     btnPaginate: {
-        position: 'relative',
         alignSelf: 'center',
         borderBottomWidth: 2,
         borderStyle: 'solid',

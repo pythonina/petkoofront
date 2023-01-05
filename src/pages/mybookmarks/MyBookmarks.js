@@ -3,7 +3,7 @@ import useStyles from "./styles";
 import { saveAdsRequest } from "../../api/api_ads";
 import { getSavedAdsRequest } from '../../api/api_auth';
 import { toast } from "react-toastify";
-import { Typography, Stack, Button } from '@mui/material';
+import { Typography, Stack, Button, useMediaQuery } from '@mui/material';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 
@@ -17,6 +17,9 @@ const MyBookmarks = () => {
     const { text, page } = useAdsState();
     const adsDispatch = useAdsDispatch();
     const [data, setData] = useState([]);
+
+    const isLaptopSize = useMediaQuery('(max-width:1199.98px)');
+    const isMobileSize =  useMediaQuery('(max-width:460px)');
 
     const updateAdsList = () => {
         getSavedAdsRequest(page, text, (status, data) => {
@@ -80,7 +83,7 @@ const MyBookmarks = () => {
 
     return (
         <>
-            {data?.results?.map((d, index) => <Stack key={index} mt={'1.5rem'} direction={'row'} mr={'8rem'} color={'#525252'} bgcolor={'white'} width={'780px'} borderRadius={'1.5rem'}>
+            {data?.results?.map((d, index) => <Stack key={index} mt={'1.5rem'} direction={'row'} mr={isLaptopSize ? (isMobileSize ? 0 : '2rem') : '8rem'} color={'#525252'} bgcolor={'white'} borderRadius={isMobileSize ? 0 : '1.5rem'}>
                 <Link to={`/${d.id}/${d.title}`}><img className={classes.bookmark__image} src={d.image1} alt={d.title} /></Link>
                 <Stack direction={'column'} alignItems={'flex-start'} marginLeft={'auto'} paddingTop={'0.6rem'}>
                     <Stack alignItems={'center'} direction={'row'}>

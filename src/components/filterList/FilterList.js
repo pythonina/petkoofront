@@ -13,6 +13,7 @@ const FilterList = () => {
     const adsDispatch = useAdsDispatch();
     const [items, setItems] = useState([]);
     const { searchData, active } = useAdsState();
+
     useEffect(() => {
         getCategoriesSomeRequest((isOk, data) => {
             if (isOk)
@@ -30,12 +31,12 @@ const FilterList = () => {
     return (
         <div className={classes.root}>
             {items &&
-                <>
-                    <Button onClick={() => filterClicked(undefined, '')} variant='contained' style={{ backgroundColor: active === undefined ? '#0084FF' : 'white', color: active === undefined ? 'white' : '#1f1f1f', borderRadius: 26 }}><img src={active === undefined ? '/images/all.png' : '/images/all2.png'} />همه ی حیوانات</Button>
+                 <div className={classes.root2}>
+                    <Button className={classes.filterBtn} onClick={() => filterClicked(undefined, '')} variant='contained' style={{ backgroundColor: active === undefined ? '#0084FF' : 'white', color: active === undefined ? 'white' : '#1f1f1f', borderRadius: 26 }}><img src={active === undefined ? '/images/all.png' : '/images/all2.png'} />همه ی حیوانات</Button>
                     {items.map((i, index) =>
-                        <Button key={index} onClick={() => filterClicked(index, i.id)} variant='contained' style={{ backgroundColor: active === index ? '#0084FF' : 'white', color: active === index ? 'white' : '#1f1f1f', marginRight: 20, borderRadius: 26 }}><img src={i.img} alt={i.name} />{i.name}</Button>
+                        <Button className={classes.filterBtn} key={index} onClick={() => filterClicked(index, i.id)} variant='contained' style={{ backgroundColor: active === index ? '#0084FF' : 'white', color: active === index ? 'white' : '#1f1f1f', marginRight: 20, borderRadius: 26 }}><img src={i.img} alt={i.name} />{i.name}</Button>
                     )}
-                </>
+                </div>
             }
         </div>
     );

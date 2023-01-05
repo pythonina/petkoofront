@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
     parentWait: {
         display: 'flex',
@@ -29,7 +29,11 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.grey.main,
         fontSize: '0.8rem',
         marginBottom: 50,
-        marginTop: 40
+        marginTop: 40,
+        position: 'relative',
+        bottom: 0,
+        right: '50%',
+        transform: 'translateX(50%)'
     },
 }));
 

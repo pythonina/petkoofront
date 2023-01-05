@@ -1,23 +1,35 @@
 import { makeStyles } from "@mui/styles";
-import { fontSize } from "@mui/system";
 
 const useStyles = makeStyles(theme => ({
     root: {
         width: '95%',
-        height: '35rem',
-        paddingRight: '2rem',
-        paddingLeft: '2rem',
         display: 'flex',
         alignSelf: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        '@media screen and (max-width: 991.98px)': {
+            flexWrap: 'wrap',
+        },
+        '@media screen and (min-width: 768px)': {
+            paddingRight: '2rem',
+            paddingLeft: '2rem',
+        },
+        '@media screen and (min-width: 576px) and (max-width: 590px)': {
+            marginRight: '-1.5rem',
+        },
     },
     images: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        '@media screen and (max-width: 575.98px)': {
+            flexDirection: 'row',
+            justifyContent: 'center',
+            width: '100%',
+            order: 1
+        }
     },
     ads__image: {
         width: '30%',
-        height: '90%',
+        height: '30rem',
         flex: 'none',
         borderRadius: 24,
         margin: 20,
@@ -25,6 +37,16 @@ const useStyles = makeStyles(theme => ({
         '& img': {
             width: '100%',
             height: '100%'
+        },
+        '@media screen and (max-width: 991.98px)': {
+            flex: 'auto',
+        },
+        '@media screen and (max-width: 575.98px)': {
+            width: '100%',
+            height: '25rem',
+        },
+        '@media screen and (max-width: 476px)': {
+            height: '20rem',
         }
     },
     paper: {
@@ -38,13 +60,22 @@ const useStyles = makeStyles(theme => ({
             width: '100%',
             height: '100%'
         },
+        '@media screen and (max-width: 465px)': {
+            margin: '20px 10px',
+        },
+        '@media screen and (max-width: 400px)': {
+            margin: '20px 5px',
+        },
     },
     texts: {
         alignSelf: 'stretch',
         display: 'flex',
         flexDirection: 'column',
         paddingTop: 10,
-        flex: 1
+        flex: 1,
+        '@media screen and (max-width: 575.98px)': {
+            order: 2
+        }
     },
     ads__title: {
         position: 'relative',
@@ -58,7 +89,8 @@ const useStyles = makeStyles(theme => ({
         borderRadius: 24,
         backgroundColor: theme.palette.grey.light,
         marginRight: '0.9rem',
-        justifySelf: 'flex-end'
+        justifySelf: 'flex-end',
+        whiteSpace: 'nowrap'
     },
     ads__price__red: {
         color: theme.palette.secondary.main
@@ -73,7 +105,8 @@ const useStyles = makeStyles(theme => ({
     ads__icon: {
         position: 'relative',
         top: 3,
-        left: 5
+        left: 5,
+        whiteSpace: 'nowrap'
     },
     ads__desc: {
         textAlign: 'justify',
@@ -81,25 +114,45 @@ const useStyles = makeStyles(theme => ({
         wordBreak: 'break-word',
         paddingLeft: '0.9rem',
         marginRight: '0.9rem',
-        marginBottom: 'auto'
+        marginBottom: 'auto',
     },
     ads__btns: {
         display: 'flex',
         marginRight: '1.3rem',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        whiteSpace: 'nowrap',
+        '@media screen and (min-width: 992px) and (max-width: 1050px)': {
+            fontSize: '14px'
+        },
+        '@media screen and (max-width: 575.98px)': {
+            flexWrap: 'wrap',
+            justifyContent: 'flex-start',
+        },
+        '@media screen and (max-width: 450px)': {
+            justifyContent: 'center',
+        },
+        '@media screen and (max-width: 991.98px)': {
+            marginTop: '3rem',
+        },
     },
     ads__btn: {
-        paddingTop: '0.7rem',
-        paddingBottom: '0.7rem',
-        paddingRight: '2.5rem',
-        paddingLeft: '2.5rem',
+        padding: '0.7rem 2.5rem',
         marginBottom: '2rem',
         marginLeft: '1rem',
         color: 'white',
         backgroundColor: '#43BB65',
         alignSelf: 'center',
         borderRadius: 24,
-        fontWeight: '600'
+        fontWeight: '600',
+        '@media screen and (min-width: 992px) and (max-width: 1110px)': {
+            padding: '0.7rem 1rem',
+        },
+        '@media screen and (max-width: 991.98px)': {
+            marginBottom: '1rem',
+        },
+        '@media screen and (max-width: 575.98px)': {
+            padding: '0.7rem 0.5rem'
+        },
     },
     ads__btn__blue: {
         backgroundColor: theme.palette.primary.main,

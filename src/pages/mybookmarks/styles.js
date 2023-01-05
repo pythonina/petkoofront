@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
         borderBottomLeftRadius: '1.5rem',
         '&:hover': {
             backgroundColor: '#FF5959'
+        },
+        '@media screen and (max-width: 460px)': {
+            borderRadius: '0 1.5rem 1.5rem 0'
         }
     },
     adsItem__price: {
@@ -53,12 +56,10 @@ const useStyles = makeStyles(theme => ({
     },
     paginate: {
         position: 'relative',
-        left: '4rem',
         display: 'flex',
         alignSelf: 'center'
     },
     btnPaginate: {
-        position: 'relative',
         alignSelf: 'center',
         borderBottomWidth: 2,
         borderStyle: 'solid',

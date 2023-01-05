@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import useStyles from './styles';
-import { CircularProgress, useTheme, Typography } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
+import { Typography, useMediaQuery } from "@mui/material";
 
 import Header from '../../components/header/Header'
 import FilterList from '../filterList/FilterList';
@@ -11,13 +10,15 @@ import RightSideBar from '../rightSideBar/RightSideBar';
 
 const Layout = (props) => {
     const classes = useStyles();
-    const theme = useTheme();
+    const isTabletSize =  useMediaQuery('(max-width:825px)');
+    const isMobileSize =  useMediaQuery('(max-width:460px)');
+
     return (
         <div style={{ minHeight: '100vh' }}>
             <div style={{ width: '100vw', backgroundColor: 'white', paddingTop: 5, height: 'auto', }}>
                 <Header />
             </div>
-            <div className={classes.root} style={{ flexDirection: (props.type === 0 || props.type === 1) ? 'row' : 'column' }}>
+            <div className={classes.root} style={{ flexWrap: (props.type === 0 || props.type === 1) && isTabletSize ? 'wrap' : 'initial', flexDirection: (props.type === 0 || props.type === 1) ? 'row' : 'column' }}>
                 {
                     (props.type === 0 || props.type === 1) ? <RightSideBar t={props.type} />
                         :
@@ -27,7 +28,7 @@ const Layout = (props) => {
                         </>
                 }
 
-                <div className={classes.content} style={{ width: (props.type === 0 || props.type === 1) ? '65%' : 'auto', paddingLeft: (props.type === 0 || props.type === 1) ? '1rem' : null }}>
+                <div className={classes.content} style={{ width: (props.type === 0 || props.type === 1) ? (isTabletSize ? '100%' : '65%') : 'auto', paddingLeft: (props.type === 0 || props.type === 1) && !isMobileSize ? '1rem' : null }}>
                     {props.children}
                 </div>
             </div>

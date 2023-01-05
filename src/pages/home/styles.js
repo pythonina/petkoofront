@@ -52,12 +52,13 @@ const useStyles = makeStyles(theme => ({
     },
     paginate: {
         display: 'flex',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        whiteSpace: 'nowrap'
     },
     cityFilter: {
         paddingRight: '5%',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     cityFilter__btn: {
         borderRadius: '1.5rem',
