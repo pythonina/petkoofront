@@ -110,12 +110,12 @@ const MyAdsList = () => {
                         {d.quarterr.name && <Typography component={'span'} fontSize={'0.7rem'}>، {d.quarterr.name}</Typography>}
                     </Stack>
                 </Stack>
-                <Stack direction={'column'} justifyContent={'space-evenly'}>
-                    {d.status === 'P' && <Stack bgcolor={'#43BB65'} width={'7.5rem'} height={'2rem'} marginLeft={'0.3rem'} justifyContent={'center'} borderRadius={'1.5rem'} color={'white'} direction={'row'} alignItems={'center'}><img src={'/images/statusarrow.png'} /><Typography sx={{ marginRight: '5px' }}>منتشر شده</Typography></Stack>}
-                    {d.status === 'W' && <Stack bgcolor={'#C8983A'} width={'7.5rem'} height={'2rem'} marginLeft={'0.3rem'} justifyContent={'center'} borderRadius={'1.5rem'} color={'white'} direction={'row'} alignItems={'center'}><img src={'/images/statuswait.png'} /><Typography sx={{ marginRight: '5px' }}>در انتظار</Typography></Stack>}
-                    {d.status === 'E' && <Stack bgcolor={'#0084FF'} width={'7.5rem'} height={'2rem'} marginLeft={'0.3rem'} justifyContent={'center'} borderRadius={'1.5rem'} color={'white'} direction={'row'} alignItems={'center'}><img src={'/images/statusexpired.png'} /><Typography sx={{ marginRight: '5px' }}>منقضی شده</Typography></Stack>}
-                    {d.status === 'B' && <Stack bgcolor={'#FF5959'} width={'7.5rem'} height={'2rem'} marginLeft={'0.3rem'} justifyContent={'center'} borderRadius={'1.5rem'} color={'white'} direction={'row'} alignItems={'center'}><img src={'/images/statusblock.png'} /><Typography sx={{ marginRight: '1px' }}>مسدود شده</Typography></Stack>}
-                    <Button sx={{ color: '#FF5959' }} onClick={() => deleteAds(d.id)}>حذف آگهی</Button>
+                <Stack direction={'column'} justifyContent={'space-evenly'} className={classes.test1}>
+                    {d.status === 'P' && <Stack className={classes.test2} bgcolor={'#43BB65'} width={'7.5rem'} height={'2rem'} marginLeft={'0.3rem'} justifyContent={'center'} borderRadius={'1.5rem'} color={'white'} direction={'row'} alignItems={'center'}><img src={'/images/statusarrow.png'} /><Typography sx={{ marginRight: '5px' }}>منتشر شده</Typography></Stack>}
+                    {d.status === 'W' && <Stack className={classes.test2} bgcolor={'#C8983A'} width={'7.5rem'} height={'2rem'} marginLeft={'0.3rem'} justifyContent={'center'} borderRadius={'1.5rem'} color={'white'} direction={'row'} alignItems={'center'}><img src={'/images/statuswait.png'} /><Typography sx={{ marginRight: '5px' }}>در انتظار</Typography></Stack>}
+                    {d.status === 'E' && <Stack className={classes.test2} bgcolor={'#0084FF'} width={'7.5rem'} height={'2rem'} marginLeft={'0.3rem'} justifyContent={'center'} borderRadius={'1.5rem'} color={'white'} direction={'row'} alignItems={'center'}><img src={'/images/statusexpired.png'} /><Typography sx={{ marginRight: '5px' }}>منقضی شده</Typography></Stack>}
+                    {d.status === 'B' && <Stack className={classes.test2} bgcolor={'#FF5959'} width={'7.5rem'} height={'2rem'} marginLeft={'0.3rem'} justifyContent={'center'} borderRadius={'1.5rem'} color={'white'} direction={'row'} alignItems={'center'}><img src={'/images/statusblock.png'} /><Typography sx={{ marginRight: '1px' }}>مسدود شده</Typography></Stack>}
+                    <Button className={classes.test3} sx={{ color: '#FF5959' }} onClick={() => deleteAds(d.id)}>حذف آگهی</Button>
                 </Stack>
             </Stack>)
             }
