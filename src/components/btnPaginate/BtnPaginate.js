@@ -18,6 +18,7 @@ const BtnPaginate = ({ data: { type, data } }) => {
             setSearchData(adsDispatch, { ...searchData, 'page': searchData.page === undefined ? 2 : searchData.page + 1 });
         else
             setSearchData(adsDispatch, { ...searchData, 'page': searchData.page === 2 ? undefined : searchData.page - 1 });
+        window.scrollTo({top: 150});
         toggleShould(adsDispatch, !should);
     }
 
