@@ -111,7 +111,7 @@ const AdsMore = (props) => {
                                 <img src={'/images/unbookmark.png'} alt='bookmark icon' style={{ position: 'relative', left: 5 }} />
                                 حذف نشان
                             </ButtonBase>}
-                        <ButtonBase className={classes.ads__btn}>
+                        <ButtonBase className={classes.ads__btn} href={"tel:0" + ads.user?.phone_number}>
                             <img src={'/images/phone.png'} alt='phone icon' style={{ position: 'relative', left: 5 }} />
                             تماس با آگهی دهنده
                             <span style={{ marginRight: 5, fontWeight: '500' }}>{ads.user?.phone_number}</span>
