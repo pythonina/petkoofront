@@ -29,16 +29,14 @@ const useStyles = makeStyles(theme => ({
     },
     root2: {
         display: 'flex',
-        marginTop: '2.2rem',
+        marginTop: '2.7rem',
         marginBottom: '2rem',
         '@media screen and (max-width: 992px)': {
             overflow: 'auto',
-            paddingBottom: '10px'
+            paddingBottom: '20px'
         },
         '@media screen and (max-width: 576px)': {
-            paddingBottom: '10px',
             marginBottom: '0',
-            paddingTop: '10px'
         },
         '@media screen and (max-width: 460px)': {
             paddingTop: '20px'

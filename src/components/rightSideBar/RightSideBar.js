@@ -16,7 +16,7 @@ const RightSideBar = ({ ...t }) => {
     const adsDispatch = useAdsDispatch();
     const isTabletSize = useMediaQuery('(max-width:825px)');
     const size2 = useMediaQuery('(min-width:605px)');
-    const size = useMediaQuery('(max-width:700px) and (min-width:576px)');
+    const size = useMediaQuery('(max-width:700px) and (min-width:605px)');
 
     const inputChanged = (e) => {
         if (t.t === 0) {
