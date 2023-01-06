@@ -106,7 +106,7 @@ const useStyles = makeStyles(theme => ({
     },
     test1: {
         '@media screen and (max-width: 440px)': {
-            
+            position: 'relative'
         }
     },
     test2: {
@@ -117,7 +117,7 @@ const useStyles = makeStyles(theme => ({
             left: '1rem',
             padding: '2px 10px',
             color: 'wheat',
-            fontSize: '10px',
+            fontSize: '10px',   
         }
         
     },
