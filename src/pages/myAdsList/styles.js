@@ -111,23 +111,25 @@ const useStyles = makeStyles(theme => ({
     },
     test2: {
         '@media screen and (max-width: 440px)': {
+            alignItems: 'center',
+            position: 'absolute',
+            top: '-0.5rem',
+            left: '0.5rem',
+            fontSize: '10px',
+        }
+        
+    },
+    test3: {
+        '@media screen and (max-width: 440px)': {
             bottom: '-3rem',
             backgroundColor: 'cornflowerblue',
             borderRadius: '1rem',
             left: '1rem',
             padding: '2px 10px',
             color: 'wheat',
-            fontSize: '10px',   
-        }
-        
-    },
-    test3: {
-        '@media screen and (max-width: 440px)': {
-            alignItems: 'center',
-            position: 'absolute',
-            top: '-0.5rem',
-            left: '0.5rem',
-            fontSize: '10px',
+            '& p': {
+                fontSize: '10px',   
+            },
         }
     },
 }));
