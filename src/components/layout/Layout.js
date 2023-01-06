@@ -12,6 +12,7 @@ const Layout = (props) => {
     const classes = useStyles();
     const isTabletSize =  useMediaQuery('(max-width:825px)');
     const isMobileSize =  useMediaQuery('(max-width:460px)');
+    const isMobileSize2 =  useMediaQuery('(max-width:440px)');
 
     return (
         <div style={{ minHeight: '100vh' }}>
@@ -28,7 +29,7 @@ const Layout = (props) => {
                         </>
                 }
 
-                <div className={classes.content} style={{ width: (props.type === 0 || props.type === 1) ? (isTabletSize ? '100%' : '65%') : 'auto', paddingLeft: (props.type === 0 || props.type === 1) && !isMobileSize ? '1rem' : null }}>
+                <div className={classes.content} style={{ width: (props.type === 0 || props.type === 1) ? (isTabletSize ? '100%' : '65%') : 'auto', paddingLeft: (props.type === 0 && !isMobileSize) || (props.type === 1 && !isMobileSize2)  ? '1rem' : null }}>
                     {props.children}
                 </div>
             </div>

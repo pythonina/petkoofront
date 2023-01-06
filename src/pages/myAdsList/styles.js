@@ -106,13 +106,13 @@ const useStyles = makeStyles(theme => ({
         alignSelf: 'center'
     },
     test1: {
-        '@media screen and (max-width: 440px)': {
+        '@media screen and (max-width: 460px)': {
             position: 'relative',
             width: 0
         }
     },
     test2: {
-        '@media screen and (max-width: 440px)': {
+        '@media screen and (max-width: 460px)': {
             alignItems: 'center',
             position: 'absolute',
             top: '-0.7rem',
@@ -125,7 +125,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     test3: {
-        '@media screen and (max-width: 440px)': {
+        '@media screen and (max-width: 460px)': {
             bottom: '-3rem',
             backgroundColor: 'cornflowerblue',
             borderRadius: '1rem',
