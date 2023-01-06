@@ -114,7 +114,7 @@ const useStyles = makeStyles(theme => ({
         '@media screen and (max-width: 440px)': {
             alignItems: 'center',
             position: 'absolute',
-            top: '-0.5rem',
+            top: '-0.7rem',
             left: '0.5rem',
             width: '5.5rem',
             height: '1.2rem',
@@ -132,6 +132,7 @@ const useStyles = makeStyles(theme => ({
             padding: '0 10px',
             color: 'wheat',
             fontSize: '10px',
+            whiteSpace: 'nowrap',
             '&:hover': {
                 backgroundColor: 'cornflowerblue',
                 color: 'wheat',
