@@ -7,12 +7,9 @@ import { useParams, Link } from 'react-router-dom';
 
 import { ButtonBase, Button, Paper, Typography } from '@mui/material';
 import classnames from 'classnames';
-import AuthContext from '../../context/AuthContext';
 
 const AdsMore = (props) => {
     const classes = useStyles();
-
-    const { logoutRequest } = React.useContext(AuthContext);
 
     const [ads, setAds] = useState([]);
     const { id } = useParams();

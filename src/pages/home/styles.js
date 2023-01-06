@@ -20,6 +20,15 @@ const useStyles = makeStyles(theme => ({
         width: '20rem',
         height: '15.5rem',
         borderRadius: 24,
+        '@media screen and (min-width: 605px) and (max-width: 767.98px)': {
+            width: '15rem',
+        },
+        '@media screen and (min-width: 430px) and (max-width: 604.98px)': {
+            width: '22rem',
+        },
+        '@media screen and (max-width: 370px)': {
+            width: '18.5rem',
+        },
     },
     adsItem__title: {
         marginTop: '0.7rem',

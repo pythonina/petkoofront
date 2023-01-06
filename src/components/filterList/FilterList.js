@@ -3,7 +3,7 @@ import useStyles from "./styles";
 import { Button } from '@mui/material';
 
 import { getCategoriesSomeRequest } from '../../api/api_ads';
-import { useAdsState, setSearchData, toggleShould, setActive, useAdsDispatch, setPage } from '../../context/AdsContext';
+import { useAdsState, setSearchData, toggleShould, setActive, useAdsDispatch } from '../../context/AdsContext';
 import { useNavigate } from 'react-router-dom';
 
 const FilterList = () => {
