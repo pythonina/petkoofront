@@ -19,7 +19,7 @@ const MyBookmarks = () => {
     const [data, setData] = useState([]);
 
     const isLaptopSize = useMediaQuery('(max-width:1199.98px)');
-    const isMobileSize =  useMediaQuery('(max-width:460px)');
+    const isMobileSize =  useMediaQuery('(max-width:440px)');
 
     const updateAdsList = () => {
         getSavedAdsRequest(page, text, (status, data) => {
@@ -83,7 +83,7 @@ const MyBookmarks = () => {
 
     return (
         <>
-            {data?.results?.map((d, index) => <Stack key={index} mt={'1.5rem'} direction={'row'} mr={isLaptopSize ? (isMobileSize ? 0 : '2rem') : '8rem'} color={'#525252'} bgcolor={'white'} borderRadius={isMobileSize ? 0 : '1.5rem'}>
+            {data?.results?.map((d, index) => <Stack key={index} position={isMobileSize ? 'relative' : null} mt={'1.5rem'} direction={'row'} mr={isLaptopSize ? (isMobileSize ? 0 : '2rem') : '8rem'} color={'#525252'} bgcolor={'white'} borderRadius={isMobileSize ? 0 : '1.5rem'}>
                 <Link to={`/${d.id}/${d.title}`}><img className={classes.bookmark__image} src={d.image1} alt={d.title} /></Link>
                 <Stack direction={'column'} alignItems={'flex-start'} marginLeft={'auto'} paddingTop={'0.6rem'}>
                     <Stack alignItems={'center'} direction={'row'}>
@@ -105,7 +105,7 @@ const MyBookmarks = () => {
                         <Typography component={'span'} fontSize={'0.7rem'}>{d.quarterr?.name}</Typography>
                     </Stack>
                 </Stack>
-                <Button className={classes.bookmark__icon} onClick={() => saveAds(d.id)}><img src={'/images/bookmark4.png'} alt='bookmark icon' /></Button>
+                <Button className={classes.bookmark__icon} onClick={() => saveAds(d.id)}><img className={classes.bookmark__iconImage} src={'/images/bookmark4.png'} alt='bookmark icon' /></Button>
             </Stack>)
             }
             <div className={classes.paginate}>

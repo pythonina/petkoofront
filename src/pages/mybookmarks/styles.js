@@ -35,8 +35,19 @@ const useStyles = makeStyles(theme => ({
         '&:hover': {
             backgroundColor: '#FF5959'
         },
-        '@media screen and (max-width: 460px)': {
-            borderRadius: '0 1.5rem 1.5rem 0'
+        '@media screen and (max-width: 440px)': {
+            borderRadius: '50%',
+            position: 'absolute',
+            top: '-1.5rem',
+            left: '0.5rem',
+            height: '2.5rem',
+            minWidth: 'initial',
+            width: '2.5rem',
+        }
+    },
+    bookmark__iconImage: {
+        '@media screen and (max-width: 440px)': {
+            width: '1rem'
         }
     },
     adsItem__price: {
@@ -57,7 +68,8 @@ const useStyles = makeStyles(theme => ({
     paginate: {
         position: 'relative',
         display: 'flex',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        top: '1rem',
     },
     btnPaginate: {
         alignSelf: 'center',
