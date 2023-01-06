@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Layout from "./layout/Layout";
-import { BrowserRouter, Route, Routes, Outlet, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "../pages/home/Home";
 import Page404 from "../pages/404/404";
 import AdsMore from '../pages/adsmore/AdsMore';
