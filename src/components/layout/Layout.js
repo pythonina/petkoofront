@@ -29,7 +29,7 @@ const Layout = (props) => {
                         </>
                 }
 
-                <div className={classes.content} style={{ width: (props.type === 0 || props.type === 1) ? (isTabletSize ? '100%' : '65%') : 'auto', paddingLeft: (props.type === 0 && !isMobileSize) || (props.type === 1 && !isMobileSize2)  ? '1rem' : null }}>
+                <div className={classes.content} style={{ width: (props.type === 0 || props.type === 1) ? (isTabletSize ? '100%' : '65%') : 'auto', paddingLeft: (props.type === 1 && !isMobileSize) || (props.type === 0 && !isMobileSize2)  ? '1rem' : null }}>
                     {props.children}
                 </div>
             </div>
