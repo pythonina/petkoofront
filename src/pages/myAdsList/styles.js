@@ -107,7 +107,7 @@ const useStyles = makeStyles(theme => ({
     test1: {
         '@media screen and (max-width: 440px)': {
             position: 'relative',
-
+            width: 0
         }
     },
     test2: {
@@ -117,7 +117,7 @@ const useStyles = makeStyles(theme => ({
             top: '-0.5rem',
             left: '0.5rem',
             width: '5.5rem',
-            height: '1.5rem',
+            height: '1.2rem',
             '& p': {
                 fontSize: '10px',   
             },
@@ -128,8 +128,8 @@ const useStyles = makeStyles(theme => ({
             bottom: '-3rem',
             backgroundColor: 'cornflowerblue',
             borderRadius: '1rem',
-            left: '1rem',
-            padding: '2px 10px',
+            left: '5rem',
+            padding: '0 10px',
             color: 'wheat',
             fontSize: '10px',
             '&:hover': {
