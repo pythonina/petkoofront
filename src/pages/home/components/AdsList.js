@@ -16,7 +16,7 @@ const AdsList = ({ data }) => {
     return (
         <div className={classes.adsList}>
             {
-                data.map((ads, index) => <Link onClick={() => { setSearchData(adsDispatch, {}); navigate('/') }} to={`/${ads.id}/${ads.title}`} key={index}><Ads data={ads} key={index} /></Link>)
+                data.map((ads, index) => <Link onClick={() => { setSearchData(adsDispatch, {}); navigate('/'); window.scrollTo({top: 150}) }} to={`/${ads.id}/${ads.title}`} key={index}><Ads data={ads} key={index} /></Link>)
             }
         </div>
     );
