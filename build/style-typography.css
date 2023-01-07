@@ -1,0 +1,26 @@
+@import url(iransansx.css);
+
+body {
+  direction: rtl;
+  background-color: #f9f9f9;
+}
+
+*,
+*::before,
+*::after {
+  font-family: IranSansX !important;
+  font-weight: 300;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea {
+  font-family: inherit;
+}
+h1 {
+  font-weight: bold;
+}
