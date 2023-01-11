@@ -343,7 +343,7 @@ const CreateAds = () => {
                             size="medium"
                         />
                         <Button sx={{ mt: 4, backgroundColor: '#FF5959', width: '70%' }} variant='contained' onClick={submitForm}>
-                            {adsSubmitClicked === true ? <CircularProgress sx={{width: 26, height: 26}} color={'white'} /> : 'ارسال آگهی'}
+                            {adsSubmitClicked === true ? <CircularProgress sx={{width: 26, height: 26, color: 'white'}} /> : 'ارسال آگهی'}
                         </Button>
                     </>
                 }
