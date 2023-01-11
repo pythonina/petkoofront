@@ -140,7 +140,7 @@ const CreateAds = () => {
 
     const submitForm = () => {
         if (!cat || !gender || !city || !imagePath || !imageLink, !title, !desc || (quarter?.length > 0 && !quarter))
-            return toast.error('خطا در اطلاعات')
+            return toast.error('فیلدی را خالی گذاشته اید')
         const formData = new FormData();
         formData.append('title', title);
         formData.append('desc', desc);
@@ -159,7 +159,7 @@ const CreateAds = () => {
                     setTimeout(() => navigate('/'), 1000);
                     break;
                 case 400:
-                    toast.error('اطلاعات معنبر نیستند');
+                    toast.error('اطلاعات معتبر نیستند');
                     break;
                 case 401:
                     logoutRequest();
