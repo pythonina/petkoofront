@@ -141,6 +141,7 @@ const CreateAds = () => {
     }
 
     const submitForm = (e) => {
+        console.log(adsSubmitClicked);
         if (adsSubmitClicked)
             return;
         setAdsSubmitClicked(true);
@@ -342,7 +343,7 @@ const CreateAds = () => {
                             size="medium"
                         />
                         <Button sx={{ mt: 4, backgroundColor: '#FF5959', width: '70%' }} variant='contained' onClick={submitForm}>
-                            {adsSubmitClicked ? <CircularProgress /> : 'ارسال آگهی'}
+                            {adsSubmitClicked === true ? <CircularProgress /> : 'ارسال آگهی'}
                         </Button>
                     </>
                 }
