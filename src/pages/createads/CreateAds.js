@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
 import useStyles from "./styles";
-import { Box, List, ListItem, ListItemButton, ListItemText, Divider, ButtonBase, Menu, MenuItem, Stack, Paper, RadioGroup, Radio, TextField, FormControlLabel, Typography, Button } from '@mui/material';
+import { Box, List, ListItem, CircularProgress, ListItemButton, ListItemText, Divider, ButtonBase, Menu, MenuItem, Stack, Paper, RadioGroup, Radio, TextField, FormControlLabel, Typography, Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -41,6 +41,8 @@ const CreateAds = () => {
     const [desc, setDesc] = useState('');
     const [anchorEl, setAnchorEl] = useState(null);
     const [anchorEl2, setAnchorEl2] = useState(null);
+    const [adsSubmitClicked, setAdsSubmitClicked] = useState(false);
+
     useEffect(() => {
         let mounted = true;
         getCategoriesRequest((isOk, data) => {
@@ -138,9 +140,14 @@ const CreateAds = () => {
         }
     }
 
-    const submitForm = () => {
-        if (!cat || !gender || !city || !imagePath || !imageLink, !title, !desc || (quarter?.length > 0 && !quarter))
+    const submitForm = (e) => {
+        if (adsSubmitClicked)
+            return;
+        setAdsSubmitClicked(true);
+        if (!cat || !gender || !city || !imagePath || !imageLink, !title, !desc || (quarter?.length > 0 && !quarter)) {
+            setAdsSubmitClicked(false);
             return toast.error('فیلدی را خالی گذاشته اید')
+        }
         const formData = new FormData();
         formData.append('title', title);
         formData.append('desc', desc);
@@ -168,6 +175,7 @@ const CreateAds = () => {
                     toast.error('مشکلی پیش آمده است')
             }
         })
+        setAdsSubmitClicked(false);
     }
 
     return (
@@ -333,7 +341,9 @@ const CreateAds = () => {
                             variant="outlined"
                             size="medium"
                         />
-                        <Button sx={{ mt: 4, backgroundColor: '#FF5959', width: '70%' }} variant='contained' onClick={submitForm}>ارسال آگهی</Button>
+                        <Button sx={{ mt: 4, backgroundColor: '#FF5959', width: '70%' }} variant='contained' onClick={submitForm}>
+                            {adsSubmitClicked ? <CircularProgress /> : 'ارسال آگهی'}
+                        </Button>
                     </>
                 }
             </Box>
