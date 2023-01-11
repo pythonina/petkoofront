@@ -175,8 +175,8 @@ const CreateAds = () => {
                 default:
                     toast.error('مشکلی پیش آمده است')
             }
+            setAdsSubmitClicked(false);
         })
-        setAdsSubmitClicked(false);
     }
 
     return (
