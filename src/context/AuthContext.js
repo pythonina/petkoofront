@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from "jwt-decode";
 import { toast } from "react-toastify";
 
 import { codeRequestApi, verifyRequestApi, refreshRequestApi } from '../api/api_auth';
@@ -12,7 +12,7 @@ export default AuthContext;
 export const AuthProvider = ({ children }) => {
 
     const [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
-    const [phone, setPhone] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(JSON.parse(localStorage.getItem('authTokens')).access).phone_number : null)
+    const [phone, setPhone] = useState(() => localStorage.getItem('authTokens') ? jwtDecode(JSON.parse(localStorage.getItem('authTokens')).access).phone_number : null)
     const [loading, setLoading] = useState(true)
 
     const codeRequest = (phone_number, setL, reset, setS, ch = '', setCh = null) => {
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
                 return toast.error(data);
             hc();
             setAuthTokens(data)
-            setPhone(jwt_decode(data.access).phone_number);
+            setPhone(jwtDecode(data.access).phone_number);
             localStorage.setItem('authTokens', JSON.stringify(data));
             toast.success("شما با موفقیت وارد شدید")
         })
@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }) => {
             if (isOk) {
                 localStorage.setItem('authTokens', JSON.stringify(data));
                 setAuthTokens(data);
-                setPhone(jwt_decode(data.access).phone_number);
+                setPhone(jwtDecode(data.access).phone_number);
             } else {
                 localStorage.removeItem('authTokens');
                 setAuthTokens(null);
