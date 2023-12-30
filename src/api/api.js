@@ -2,7 +2,7 @@ import Axios from 'axios';
 
 export const getAxiosInstanceApi = () => {
     return Axios.create({
-        baseURL: "https://api.petkoo.shop/"
+        baseURL: "https://api.petkooshop.ir/"
     });
 }
 export const getAxiosInstanceAuth = () => {
