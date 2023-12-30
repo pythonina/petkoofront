@@ -7,7 +7,7 @@ export const getAxiosInstanceApi = () => {
 }
 export const getAxiosInstanceAuth = () => {
     return Axios.create({
-        baseURL: "https://api.petkoo.shop/",
+        baseURL: "https://api.petkooshop.ir/",
         headers: {
             'Authorization': `Bearer ${JSON.parse(localStorage.getItem('authTokens'))?.access}`
         }
